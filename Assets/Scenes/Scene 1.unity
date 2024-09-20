@@ -16495,8 +16495,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01, y: 0.04}
-  m_Size: {x: 0.36, y: 0.57}
+  m_Offset: {x: -0.01, y: 0.06}
+  m_Size: {x: 0.36, y: 0.5}
   m_Direction: 0
 --- !u!212 &1277414509
 SpriteRenderer:
@@ -16577,7 +16577,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 937a372879a06db47b9a1f0c1a381b20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSpeed: 1
+  characterSpeed: 1.5
+  jumpForce: 0.21
 --- !u!1 &1354731807
 GameObject:
   m_ObjectHideFlags: 0
