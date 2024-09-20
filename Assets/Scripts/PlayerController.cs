@@ -25,6 +25,16 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
 
+        if(horizontalInput < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+        }
+        else if(horizontalInput > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
+
+
         if(Input.GetButtonDown("Jump") && GroundSensor.isGrounded == true)
         {
             characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
