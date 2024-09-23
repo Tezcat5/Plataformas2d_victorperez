@@ -56,4 +56,12 @@ public class PlayerController : MonoBehaviour
     {
         characterRigidbody.velocity = new Vector2(horizontalInput * characterSpeed, characterRigidbody.velocity.y);
     }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.layer == 8)
+        {
+            characterAnimator.SetTrigger("IsDead");
+        }
+    }
 }
