@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float jumpForce = 10f;
     [SerializeField]private int healthPoints = 5;
 
+    private bool isAttacking;
+
     void Awake()
     {
         characterRigidbody = GetComponent<Rigidbody2D>();
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     {
 
         Movement();
-        if(Input.GetButtonDown("Jump") && GroundSensor.isGrounded == true)
+        if(Input.GetButtonDown("Jump") && GroundSensor.isGrounded && !isAttacking)
         {
             Jump();
         }
@@ -74,7 +76,17 @@ public class PlayerController : MonoBehaviour
     
     void Attack()
     {
+        StartCoroutine(AttackAnimation());
         characterAnimator.SetTrigger("Attack");
+    }
+
+    IEnumerator AttackAnimation()
+    {
+        isAttacking = true;
+
+        yield return new WaitForSeconds(1f);
+
+        isAttacking = false;
     }
 
     void TakeDamage()
