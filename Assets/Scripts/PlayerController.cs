@@ -26,6 +26,27 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        Movement();
+        if(Input.GetButtonDown("Jump") && GroundSensor.isGrounded == true)
+        {
+            Jump();
+        }
+            
+        if(Input.GetButtonDown("Attack") && GroundSensor.isGrounded)
+        {
+            Attack();
+        }
+    }
+       
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        characterRigidbody.velocity = new Vector2(horizontalInput * characterSpeed, characterRigidbody.velocity.y);
+    }
+    
+    void Movement()
+    {
         horizontalInput = Input.GetAxis("Horizontal");
 
         if(horizontalInput < 0)
@@ -38,24 +59,22 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0, 0, 0);
             characterAnimator.SetBool("IsRunning", true);
         }
-        else if(horizontalInput == 0)
+        else
         {
             characterAnimator.SetBool("IsRunning",false);
         }
-
-
-        if(Input.GetButtonDown("Jump") && GroundSensor.isGrounded == true)
-        {
-            characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            characterAnimator.SetBool("IsJumping", true);
-        }
-
     }
-
-    // Update is called once per frame
-    void FixedUpdate()
+    
+    void Jump()
     {
-        characterRigidbody.velocity = new Vector2(horizontalInput * characterSpeed, characterRigidbody.velocity.y);
+        characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+        characterAnimator.SetBool("IsJumping", true);
+    }
+    
+    
+    void Attack()
+    {
+        characterAnimator.SetTrigger("Attack");
     }
 
     void TakeDamage()
@@ -85,6 +104,6 @@ public class PlayerController : MonoBehaviour
             //characterAnimator.SetTrigger("IsHurt");
             //Destroy(gameObject, 0.4f);
             TakeDamage();
-        }
+        } 
     }
 }
