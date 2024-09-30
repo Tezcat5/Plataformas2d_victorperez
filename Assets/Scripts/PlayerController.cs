@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
             
-        if(Input.GetButtonDown("Attack") && GroundSensor.isGrounded)
+        if(Input.GetButtonDown("Attack") && GroundSensor.isGrounded && !isAttacking)
         {
             Attack();
         }
@@ -44,11 +44,25 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*if(isAttacking)
+        {
+            characterRigidbody.velocity = new Vector2(0, characterRigidbody.velocity.y);
+        }
+        else
+        {
+            characterRigidbody.velocity = new Vector2(horizontalInput * characterSpeed, characterRigidbody.velocity.y);
+        }*/
+       
         characterRigidbody.velocity = new Vector2(horizontalInput * characterSpeed, characterRigidbody.velocity.y);
     }
     
     void Movement()
     {
+
+        if(isAttacking)
+        {
+
+        }
         horizontalInput = Input.GetAxis("Horizontal");
 
         if(horizontalInput < 0)
@@ -84,7 +98,7 @@ public class PlayerController : MonoBehaviour
     {
         isAttacking = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         isAttacking = false;
     }
