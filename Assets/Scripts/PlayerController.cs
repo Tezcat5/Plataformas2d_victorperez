@@ -62,7 +62,8 @@ public class PlayerController : MonoBehaviour
     {
         healthPoints--;
         characterAnimator.SetTrigger("IsHurt");
-        if(healthPoints == 0)
+
+        if(healthPoints <= 0)
         {
             Die();
         }
@@ -70,8 +71,8 @@ public class PlayerController : MonoBehaviour
 
     void Die()
     {
-        characterAnimator.SetBool("isDead", true);
-        Destroy(gameObject, 0.4f);
+        characterAnimator.SetTrigger("IsDead");
+        Destroy(gameObject, 1f);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
