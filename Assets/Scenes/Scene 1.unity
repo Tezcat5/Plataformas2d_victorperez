@@ -16840,7 +16840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSpeed: 3
   jumpForce: 7
-  healthPoints: 2
+  healthPoints: 5
 --- !u!95 &1277414512
 Animator:
   serializedVersion: 5
