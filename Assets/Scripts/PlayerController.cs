@@ -108,8 +108,8 @@ public class PlayerController : MonoBehaviour
             if(enemy.gameObject.CompareTag("Mimico"))
             {
                 //Destroy(enemy.gameObject);
-                Rigidbody2D enemyRigidBody = enemy.GetComponent<Rigidbody>();
-                enemyRigidBody.AddForce(Vector2.right * 2, ForceMode2D.Impulse);
+                Rigidbody2D enemyRigidBody = enemy.GetComponent<Rigidbody2D>();
+                enemyRigidBody.AddForce(transform.right + transform.up * 2, ForceMode2D.Impulse);
             }
         }
 
