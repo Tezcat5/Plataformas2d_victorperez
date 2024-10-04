@@ -61,15 +61,7 @@ public class PlayerController : MonoBehaviour
     
     void Movement()
     {
-
-        if(isAttacking)
-        {
-            horizontalInput = 0;
-        }
-        else
-        {
-            horizontalInput = Input.GetAxis("Horizontal");
-        }
+        horizontalInput = Input.GetAxis("Horizontal");
 
         if(horizontalInput < 0)
     {
@@ -92,6 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         characterAnimator.SetBool("IsRunning", false);
     }
+    
 }
     void Jump()
     {
@@ -102,8 +95,19 @@ public class PlayerController : MonoBehaviour
     
     void Attack()
     {
-        StartCoroutine(AttackAnimation());
-        characterAnimator.SetTrigger("Attack");
+
+        if(horizontalInput == 0)
+        {
+            characterAnimator.SetTrigger("Attack");
+        }
+
+        else
+        {
+            characterAnimator.SetTrigger("RunAttack");
+            StartCoroutine(AttackAnimation());
+        }
+        
+        
     }
 
     IEnumerator AttackAnimation()
