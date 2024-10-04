@@ -93,16 +93,6 @@ public class PlayerController : MonoBehaviour
         characterAnimator.SetBool("IsRunning", false);
     }
 }
-
-
-
-
-
-
-
-
-
-
     void Jump()
     {
         characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -129,6 +119,8 @@ public class PlayerController : MonoBehaviour
                 //Destroy(enemy.gameObject);
                 Rigidbody2D enemyRigidBody = enemy.GetComponent<Rigidbody2D>();
                 enemyRigidBody.AddForce(transform.right + transform.up * 2, ForceMode2D.Impulse);
+                Enemy script = enemy.GetComponent<Enemy>();
+                script.TakeDamage();
             }
         }
 
