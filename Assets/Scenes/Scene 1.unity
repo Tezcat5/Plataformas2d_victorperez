@@ -17756,7 +17756,7 @@ Transform:
   m_GameObject: {fileID: 1054213100}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.16, y: -0.4, z: 0}
+  m_LocalPosition: {x: 2.84, y: -0.54, z: 0}
   m_LocalScale: {x: 0.65962, y: 0.65178704, z: 3.2981}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17775,7 +17775,7 @@ GameObject:
   - component: {fileID: 1242136250}
   - component: {fileID: 1242136249}
   - component: {fileID: 1242136253}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: mimik1
   m_TagString: Mimico
   m_Icon: {fileID: 0}
