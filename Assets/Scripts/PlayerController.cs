@@ -61,8 +61,14 @@ public class PlayerController : MonoBehaviour
     
     void Movement()
     {
+        if(isAttacking && horizontalInput == 0)
+        {
+            horizontalInput = 0;
+        }
+    else
+    {
         horizontalInput = Input.GetAxis("Horizontal");
-
+    }
         if(horizontalInput < 0)
     {
         if(!isAttacking)
@@ -104,8 +110,9 @@ public class PlayerController : MonoBehaviour
         else
         {
             characterAnimator.SetTrigger("RunAttack");
-            StartCoroutine(AttackAnimation());
         }
+
+        StartCoroutine(AttackAnimation());
         
         
     }
