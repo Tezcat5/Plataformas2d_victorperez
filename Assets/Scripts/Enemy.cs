@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
         if(healthPoints <= 0)
         {
             Destroy(gameObject);
+            SoundManager.instance.PlaySFX(SoundManager.instance._monsterAudio);
         } 
     }
 }

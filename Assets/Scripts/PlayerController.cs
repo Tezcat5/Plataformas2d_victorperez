@@ -42,6 +42,10 @@ public class PlayerController : MonoBehaviour
         {
             Attack();
         }
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            GameManager.instance.Pause();
+        }
     }
        
     // Update is called once per frame
@@ -96,6 +100,7 @@ public class PlayerController : MonoBehaviour
     {
         characterRigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         characterAnimator.SetBool("IsJumping", true);
+        SoundManager.instance.PlaySFX(SoundManager.instance._jumpAudio);
     }
     
     
@@ -158,6 +163,7 @@ public class PlayerController : MonoBehaviour
     {
         characterAnimator.SetTrigger("IsDead");
         Destroy(gameObject, 1f);
+        SoundManager.instance.PlaySFX(SoundManager.instance._deathAudio);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
