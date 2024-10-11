@@ -12,9 +12,11 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip _jumpAudio;
 
-    public AudioClip _monsterAudio;
+    public AudioClip _mimikAudio;
 
     public AudioClip _deathAudio;
+
+    public AudioClip[] _audios;
 
 
 
@@ -37,9 +39,9 @@ public class SoundManager : MonoBehaviour
         _audioSource.PlayOneShot(_coinAudio);
     }*/
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioSource source, AudioClip clip)
     {
-        _audioSource.PlayOneShot(clip);
+        source.PlayOneShot(clip);
     }
 
 }
