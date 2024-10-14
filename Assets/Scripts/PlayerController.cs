@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
             
         if(Input.GetButtonDown("Attack") && GroundSensor.isGrounded && !isAttacking)
         {
-            Attack();
+            //Attack();
+            StartAttack();
         }
         if(Input.GetKeyDown(KeyCode.P))
         {
@@ -105,7 +106,7 @@ public class PlayerController : MonoBehaviour
     }
     
     
-    void Attack()
+    /*void Attack()
     {
 
         if(horizontalInput == 0)
@@ -143,6 +144,33 @@ public class PlayerController : MonoBehaviour
 
         yield return new WaitForSeconds(0.4f);
 
+        isAttacking = false;
+    }*/
+
+    void StartAttack()
+    {
+        isAttacking = true;
+        characterAnimator.SetTrigger("Attack");
+    }
+
+    void Attack()
+    {
+        Collider2D[] collider = Physics2D.OverlapCircleAll(attackHitBox.position, attackRadius);
+        foreach(Collider2D enemy in collider)
+        {
+            if(enemy.gameObject.CompareTag("Mimico"))
+            {
+                //Destroy(enemy.gameObject);
+                Rigidbody2D enemyRigidBody = enemy.GetComponent<Rigidbody2D>();
+                enemyRigidBody.AddForce(transform.right + transform.up * 2, ForceMode2D.Impulse);
+                Enemy script = enemy.GetComponent<Enemy>();
+                script.TakeDamage();
+            }
+        }
+    }
+
+    void EndAttack()
+    {
         isAttacking = false;
     }
 
