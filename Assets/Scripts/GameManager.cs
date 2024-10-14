@@ -1,13 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
     private int coins = 0;
+    [SerializeField] Text _coinText;
+
     private bool isPaused;
+    [SerializeField] GameObject _pauseCanvas;
 
 
 
@@ -29,17 +33,20 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0f;
             isPaused = true;
+            _pauseCanvas.SetActive(true);
         }
         else
         {
             Time.timeScale = 1;
             isPaused = false;
+            _pauseCanvas.SetActive(false);
         }
     }
 
     public void AddCoin()
     {
         coins++;
+        _coinText.text = coins.ToString();
         //coins += 1;
     }
 }
