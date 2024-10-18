@@ -18,6 +18,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip _starAudio;
 
+    public AudioClip _attackAudio;
+
     public AudioClip[] _audios;
 
 

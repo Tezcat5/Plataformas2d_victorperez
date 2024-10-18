@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] Text _coinText;
 
     private bool isPaused;
+    private bool pauseAnimation;
     [SerializeField] GameObject _pauseCanvas;
+    private int starsCollected = 0;
+    [SerializeField] GameObject[] estrellasActivadas;
 
     private Animator _pausePanelAnimator;
 
@@ -33,14 +36,17 @@ public class GameManager : MonoBehaviour
 
     public void Pause()
     {
-        if(!isPaused)
+        if(!isPaused && !pauseAnimation)
         {
-            Time.timeScale = 0f;
             isPaused = true;
+
+            Time.timeScale = 0f;
             _pauseCanvas.SetActive(true);
         }
-        else
+        else if(isPaused && !pauseAnimation)
         {
+            pauseAnimation = true;
+
             StartCoroutine(ClosePauseAnimation());
         }
     }
@@ -55,6 +61,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         isPaused = false;
         _pauseCanvas.SetActive(false);
+
+        pauseAnimation = false;
     }
 
     public void AddCoin()
@@ -62,5 +70,15 @@ public class GameManager : MonoBehaviour
         coins++;
         _coinText.text = coins.ToString();
         //coins += 1;
+    }
+
+    public void AddStar()
+    {
+        starsCollected++;
+
+        if (starsCollected - 1 < estrellasActivadas.Length)
+        {
+            estrellasActivadas[starsCollected - 1].SetActive(true);
+        }
     }
 }
