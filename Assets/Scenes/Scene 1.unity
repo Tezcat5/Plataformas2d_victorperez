@@ -1761,12 +1761,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 0}
-  _coinAudio: {fileID: 8300000, guid: 448293838255f8943822d7511be05e86, type: 3}
+  _coinAudio: {fileID: 0}
   _jumpAudio: {fileID: 0}
   _mimikAudio: {fileID: 0}
-  _deathAudio: {fileID: 8300000, guid: f214273e31966ef48b182334e948d8b0, type: 3}
+  _deathAudio: {fileID: 0}
   _starAudio: {fileID: 0}
   _attackAudio: {fileID: 0}
+  _healthAudio: {fileID: 0}
   _audios: []
 --- !u!1 &507895771
 GameObject:
@@ -23787,6 +23788,38 @@ PrefabInstance:
     - target: {fileID: 8054715756872447750, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 28.3475
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2069953271}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SceneLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8083673768320124077, guid: 39760aa0f5482204ba81e88868d47d20, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

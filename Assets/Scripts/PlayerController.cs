@@ -217,7 +217,7 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackHitBox.position, attackRadius);
     }
-    
+
     public void IncreaseHealth(int amount)
     {
     if (_currentHealth < _maxHealth)
