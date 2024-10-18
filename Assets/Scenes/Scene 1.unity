@@ -164,6 +164,7 @@ GameObject:
   - component: {fileID: 77970656}
   - component: {fileID: 77970655}
   - component: {fileID: 77970654}
+  - component: {fileID: 77970658}
   - component: {fileID: 77970657}
   m_Layer: 0
   m_Name: EstrellaVictoria
@@ -305,6 +306,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.9}
   m_EdgeRadius: 0
+--- !u!114 &77970658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77970653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5264b7c5db9784990e10ab1341216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &79482242
 GameObject:
   m_ObjectHideFlags: 0
@@ -1384,6 +1397,7 @@ GameObject:
   - component: {fileID: 491284193}
   - component: {fileID: 491284196}
   - component: {fileID: 491284195}
+  - component: {fileID: 491284197}
   - component: {fileID: 491284194}
   m_Layer: 0
   m_Name: EstrellaVictoria (1)
@@ -1525,6 +1539,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &491284197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491284192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5264b7c5db9784990e10ab1341216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &492591999
 GameObject:
   m_ObjectHideFlags: 0
@@ -20872,6 +20898,7 @@ GameObject:
   - component: {fileID: 1120608655}
   - component: {fileID: 1120608654}
   - component: {fileID: 1120608653}
+  - component: {fileID: 1120608656}
   m_Layer: 0
   m_Name: EstrellaVictoria (3)
   m_TagString: Untagged
@@ -21012,6 +21039,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1120608656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120608651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5264b7c5db9784990e10ab1341216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1183075969
 GameObject:
   m_ObjectHideFlags: 0
@@ -21612,7 +21651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterSpeed: 3
   jumpForce: 7
-  healthPoints: 5
+  _currentHealth: 0
+  _maxHealth: 5
   attackHitBox: {fileID: 21042128}
   attackRadius: 0.5
 --- !u!95 &1277414512
@@ -22502,7 +22542,7 @@ GameObject:
   - component: {fileID: 1684002054}
   - component: {fileID: 1684002055}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: Player Health
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22517,7 +22557,7 @@ RectTransform:
   m_GameObject: {fileID: 1684002053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10.570085, y: 10.570085, z: 10.570085}
+  m_LocalScale: {x: 10.570085, y: 13.873236, z: 10.570085}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1517957312}
@@ -22526,7 +22566,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 863, y: -67}
+  m_AnchoredPosition: {x: 863, y: -90}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1684002055
@@ -22574,9 +22614,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 5
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -22753,6 +22793,7 @@ GameObject:
   - component: {fileID: 1835662604}
   - component: {fileID: 1835662607}
   - component: {fileID: 1835662606}
+  - component: {fileID: 1835662608}
   - component: {fileID: 1835662605}
   m_Layer: 0
   m_Name: EstrellaVictoria (2)
@@ -22894,6 +22935,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1835662608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835662603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d5264b7c5db9784990e10ab1341216c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1867726425
 GameObject:
   m_ObjectHideFlags: 0
@@ -23222,6 +23275,7 @@ MonoBehaviour:
   - {fileID: 113928025}
   - {fileID: 1889349349}
   - {fileID: 1501759635}
+  _healthBar: {fileID: 1684002055}
 --- !u!4 &2069953272
 Transform:
   m_ObjectHideFlags: 0

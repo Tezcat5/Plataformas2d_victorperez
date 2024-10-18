@@ -10,7 +10,8 @@ public class PlayerController : MonoBehaviour
     private bool jumpInput;
     [SerializeField]private float characterSpeed = 4.5f;
     [SerializeField]private float jumpForce = 10f;
-    [SerializeField]private int healthPoints = 5;
+    [SerializeField]private int _currentHealth;
+    [SerializeField]private int _maxHealth = 5;
 
     private bool isAttacking;
 
@@ -28,6 +29,9 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         //characterRigidbody.AddForce(Vector2.up * jumpForce);
+        _currentHealth = _maxHealth;
+
+        GameManager.instance.SetHealthBar(_maxHealth);
     }
 
     void Update()
@@ -177,9 +181,11 @@ public class PlayerController : MonoBehaviour
 
     void TakeDamage()
     {
-        healthPoints--;
+        _currentHealth--;
 
-        if(healthPoints <= 0)
+        GameManager.instance.UpdateHealthBar(_currentHealth);
+
+        if(_currentHealth <= 0)
         {
             Die();
         }
