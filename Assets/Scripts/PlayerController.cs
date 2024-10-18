@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]private float characterSpeed = 4.5f;
     [SerializeField]private float jumpForce = 10f;
     [SerializeField]private int _currentHealth;
-    [SerializeField]private int _maxHealth = 5;
+    [SerializeField]public int _maxHealth = 5;
 
     private bool isAttacking;
 
