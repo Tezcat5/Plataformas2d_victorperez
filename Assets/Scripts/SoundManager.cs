@@ -16,6 +16,8 @@ public class SoundManager : MonoBehaviour
 
     public AudioClip _deathAudio;
 
+    public AudioClip _starAudio;
+
     public AudioClip[] _audios;
 
 

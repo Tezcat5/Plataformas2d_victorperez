@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     private bool isPaused;
     [SerializeField] GameObject _pauseCanvas;
 
+    private Animator _pausePanelAnimator;
+
 
 
     void Awake()
@@ -25,6 +27,8 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+
+        _pausePanelAnimator = _pauseCanvas.GetComponentInChildren<Animator>();
     }
 
     public void Pause()
@@ -37,10 +41,20 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Time.timeScale = 1;
-            isPaused = false;
-            _pauseCanvas.SetActive(false);
+            StartCoroutine(ClosePauseAnimation());
         }
+    }
+
+    IEnumerator ClosePauseAnimation()
+    {
+        _pausePanelAnimator.SetBool("Close", true);
+
+        yield return new WaitForSecondsRealtime(0.50f);
+
+
+        Time.timeScale = 1;
+        isPaused = false;
+        _pauseCanvas.SetActive(false);
     }
 
     public void AddCoin()
