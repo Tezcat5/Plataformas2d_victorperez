@@ -112,16 +112,12 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    IEnumerator LoadAsync()
+    IEnumerator LoadAsync(string sceneName)
     {
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
         while (!asyncLoad.isDone)
         {
-            if(asyncLoad.progress <= 0.9f)
-            {
-
-            }
             yield return null;
         }
     }
