@@ -36,6 +36,14 @@ public class GameManager : MonoBehaviour
         _pausePanelAnimator = _pauseCanvas.GetComponentInChildren<Animator>();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            StartCoroutine(LoadAsync("Main Menu"));
+        }
+    }
+
     public void Pause()
     {
         if(!isPaused && !pauseAnimation)
@@ -102,5 +110,19 @@ public class GameManager : MonoBehaviour
     public void SceneLoader(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    IEnumerator LoadAsync()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        while (!asyncLoad.isDone)
+        {
+            if(asyncLoad.progress <= 0.9f)
+            {
+
+            }
+            yield return null;
+        }
     }
 }
