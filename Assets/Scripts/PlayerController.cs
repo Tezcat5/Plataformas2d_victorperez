@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         characterRigidbody = GetComponent<Rigidbody2D>();
         characterAnimator = GetComponent<Animator>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     // Start is called before the first frame update
@@ -198,8 +199,14 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         characterAnimator.SetTrigger("IsDead");
-        Destroy(gameObject, 1f);
         SoundManager.instance.PlaySFX(_audioSource, SoundManager.instance._deathAudio);
+        StartCoroutine(WaitAndLoadGameOver());
+    }
+
+    IEnumerator WaitAndLoadGameOver()
+    {
+        yield return new WaitForSeconds(1f);
+        GameManager.instance.SceneLoader("Game Over");
     }
 
     void OnCollisionEnter2D(Collision2D collision)
